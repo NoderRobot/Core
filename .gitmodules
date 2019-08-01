@@ -4,3 +4,6 @@
 [submodule "CICore"]
 	path = CICore
 	url = git@github.com:NoderRobot/CI.git
+[submodule "CI"]
+	path = CI
+	url = git@github.com:NoderRobot/CI.git
