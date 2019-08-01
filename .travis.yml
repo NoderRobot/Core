@@ -25,6 +25,11 @@ jobs:
         - docker build -t noder/core:build-${TRAVIS_JOB_ID} . 
         - docker run -i -t noder/core:build-${TRAVIS_JOB_ID} echo hello linux
         - docker ps -a
-    - stage: Deploy
-      name: "Deploy image"
+    - stage: Deploy on branches
+      name: "Deploy on branches"
+      deploy:
+        provider: script
+        script: bash scripts/deploy.sh
 script: true
+env:
+  - docker_username=a2564011261
