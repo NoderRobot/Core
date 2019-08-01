@@ -1,0 +1,1 @@
+"G:\my\mine\noder\CI core\ci-core.py" hi

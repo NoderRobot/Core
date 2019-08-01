@@ -1,0 +1,30 @@
+dist: xenial
+language: python
+python:
+  - '3.6'
+services:
+  - docker
+git:
+  submodules: false
+stages:
+  - test
+  - build
+  - run
+jobs:
+  include:
+    - stage: test
+      name: "test file"
+      script: python core.py
+    - stage: build
+      name: "build image"
+      script: 
+        - docker build -t noder/core:build-${TRAVIS_JOB_ID} . 
+    - stage: run
+      name: "run image"
+      script: 
+        - docker build -t noder/core:build-${TRAVIS_JOB_ID} . 
+        - docker run -i -t noder/core:build-${TRAVIS_JOB_ID} echo hello linux
+        - docker ps
+    - stage: Deploy
+      name: "Deploy image"
+script: true

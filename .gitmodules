@@ -1,0 +1,6 @@
+[submodule "OSTool"]
+	path = OSTool
+	url = git@github.com:NoderRobot/OSTool.git
+[submodule "CICore"]
+	path = CICore
+	url = git@github.com:NoderRobot/CI.git
