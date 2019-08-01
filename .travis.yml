@@ -24,13 +24,14 @@ jobs:
       script: 
         - docker build -t noder/core:build-${TRAVIS_JOB_ID} . 
         - docker run -i -t noder/core:build-${TRAVIS_JOB_ID} echo hello linux
+        - docker run -i -t noder/core:build-${TRAVIS_JOB_ID} (echo hello linux;core.py help)
         - docker ps -a
     - stage: Deploy on branches
       name: "Deploy on branches"
       deploy:
-        provider: script
-        script: bash scripts/deploy.sh
-        skip_cleanup: true
+        - provider: script
+          script: bash scripts/deploy.sh
+          skip_cleanup: true
 script: true
 env:
   - docker_username=a2564011261
