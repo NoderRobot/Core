@@ -24,7 +24,7 @@ jobs:
       script: 
         - docker build -t noder/core:build-${TRAVIS_JOB_ID} . 
         - docker run -i -t noder/core:build-${TRAVIS_JOB_ID} echo hello linux
-        - docker ps
+        - docker ps -a
     - stage: Deploy
       name: "Deploy image"
 script: true
