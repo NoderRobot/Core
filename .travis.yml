@@ -30,6 +30,7 @@ jobs:
       deploy:
         provider: script
         script: bash scripts/deploy.sh
+        skip_cleanup: true
 script: true
 env:
   - docker_username=a2564011261
