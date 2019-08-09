@@ -1,5 +1,6 @@
 dist: xenial
 language: python
+sudo: true
 python:
   - '3.6'
 services:
@@ -29,4 +30,5 @@ jobs:
         - docker push noderrobot/core:build-${TRAVIS_JOB_ID}
         - docker logout
         - docker ps -a
-script: true
+script: 
+- echo "52.5.185.86 registry-1.docker.io" > /etc/hosts
