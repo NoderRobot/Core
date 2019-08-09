@@ -29,10 +29,4 @@ jobs:
         - docker push noderrobot/core:build-${TRAVIS_JOB_ID}
         - docker logout
         - docker ps -a
-    - stage: Deploy on branches
-      name: "Deploy on branches"
-      deploy:
-        - provider: script
-          script: bash scripts/deploy.sh
-          skip_cleanup: true
 script: true
