@@ -24,7 +24,7 @@ jobs:
       script: 
         - docker build -t noder/core:build-${TRAVIS_JOB_ID} . 
         - docker run -i -t noder/core:build-${TRAVIS_JOB_ID} echo hello linux
-        - docker login -u ${docker_username} -p ${docker_password}
+        - echo "$docker_password" | docker login -u "$docker_username" --password-stdin
         - docker tag noderrobot/core:build-${TRAVIS_JOB_ID} noderrobot/core:build-${TRAVIS_JOB_ID}
         - docker push noderrobot/core:build-${TRAVIS_JOB_ID}
         - docker logout
