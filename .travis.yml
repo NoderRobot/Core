@@ -24,7 +24,10 @@ jobs:
       script: 
         - docker build -t noder/core:build-${TRAVIS_JOB_ID} . 
         - docker run -i -t noder/core:build-${TRAVIS_JOB_ID} echo hello linux
-        - docker run -i -t noder/core:build-${TRAVIS_JOB_ID} (echo hello linux;core.py help)
+        - docker login -u ${docker_username} -p ${docker_password}
+        - docker tag noderrobot/core:build-${TRAVIS_JOB_ID} noderrobot/core:build-${TRAVIS_JOB_ID}
+        - docker push noderrobot/core:build-${TRAVIS_JOB_ID}
+        - docker logout
         - docker ps -a
     - stage: Deploy on branches
       name: "Deploy on branches"
