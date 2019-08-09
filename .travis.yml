@@ -25,10 +25,10 @@ jobs:
       script: 
         - docker build -t noder/core:build-${TRAVIS_JOB_ID} . 
         - docker run -i -t noder/core:build-${TRAVIS_JOB_ID} echo hello linux
-        - echo "$docker_password" | docker login -u "$docker_username" --password-stdin
+        - echo "$docker_password" | docker login -u "$docker_username" --password-stdin registry.docker.io
         - docker tag noderrobot/core:build-${TRAVIS_JOB_ID} noderrobot/core:build-${TRAVIS_JOB_ID}
         - docker push noderrobot/core:build-${TRAVIS_JOB_ID}
         - docker logout
         - docker ps -a
 script: 
-- echo "52.5.185.86 registry-1.docker.io" > /etc/hosts
+- echo "54.152.209.167 registry-1.docker.io" > /etc/hosts
